@@ -1,0 +1,396 @@
+@media (max-width: 479px)
+{
+    /*-------------------
+        Global styles
+    -------------------*/
+    :root
+    {
+        --line_height: 6px;
+        --line_height_b: 8px;
+    }
+
+
+
+    /*--------------
+        Fancybox
+    --------------*/
+    .fancybox__content > .f-button.is-close-btn,
+    .is-compact .fancybox__content > .f-button.is-close-btn
+    {
+        top: 20px;
+        right: 20px;
+
+        --f-button-width: 20px;
+        --f-button-height: 20px;
+        --f-button-svg-width: 20px;
+        --f-button-svg-height: 20px;
+    }
+
+
+
+    /*---------------
+        Accordion
+    ---------------*/
+    .accordion_item .head .title
+    {
+        font-size: 16px;
+        line-height: calc(100% + 6px);
+    }
+
+
+
+    /*-----------------
+        Mob. header
+    -----------------*/
+    .mob_header .icon_links
+    {
+        gap: 30px;
+    }
+
+
+    .mob_header .icon_links .count
+    {
+        margin-left: 0;
+    }
+
+
+    .mob_header .mob_menu_btn
+    {
+        margin-left: 30px;
+    }
+
+
+
+    /*------------------
+        Form elements
+    ------------------*/
+    .form .columns > *,
+    .form .columns > *.width1of3,
+    .form .columns > *.width1of4
+    {
+        width: calc(100% - var(--form_columns_offset));
+    }
+
+
+
+    /*----------------
+        Typography
+    ----------------*/
+    .text_block h2
+    {
+        font-size: 24px;
+    }
+
+    .text_block h3
+    {
+        font-size: 22px;
+    }
+
+    .text_block h4
+    {
+        font-size: 20px;
+    }
+
+    .text_block h5
+    {
+        font-size: 20px;
+    }
+
+
+    .text_block * + h2,
+    .text_block * + h3,
+    .text_block * + h4,
+    .text_block * + h5
+    {
+        margin-top: var(--outside_gap_s);
+    }
+
+
+    .text_block hr,
+    .text_block .full_w
+    {
+        margin-block: var(--outside_gap_s);
+    }
+
+
+    .text_block .features .label
+    {
+        width: 130px;
+    }
+
+
+    .text_block .features .val
+    {
+        width: calc(100% - 150px);
+    }
+
+
+
+    /*-----------------
+        Main slider
+    -----------------*/
+    .main_slider .image2
+    {
+        width: 200px;
+    }
+
+
+
+    /*-------------
+        Catalog
+    -------------*/
+    .catalog .big_title
+    {
+        margin-bottom: 0;
+
+        font-size: 84px;
+    }
+
+
+    .catalog .category
+    {
+        padding: 10px;
+    }
+
+
+    .catalog .category .thumb
+    {
+        height: 120px;
+    }
+
+
+
+    /*------------
+        Brands
+    ------------*/
+    .brands .brand .thumb
+    {
+        height: 80px;
+    }
+
+
+
+    /*----------
+        News
+    ----------*/
+    .news .item
+    {
+        padding: 15px;
+    }
+
+
+
+    /*------------------
+        Product info
+    ------------------*/
+    .product_info .images .thumbs
+    {
+        width: 60px;
+    }
+
+
+    .product_info .images .thumbs .swiper
+    {
+        height: 340px;
+    }
+
+
+    .product_info .images .big
+    {
+        width: calc(100% - 70px);
+    }
+
+
+    .product_info .images .big .swiper,
+    .product_info .images .big .img
+    {
+        height: 340px;
+    }
+
+
+    .product_info .images .big .swiper-button-next,
+    .product_info .images .big .swiper-button-prev
+    {
+        display: none;
+    }
+
+
+    .product_info .price
+    {
+        font-size: 28px;
+    }
+
+
+    .product_info .amount
+    {
+        width: 120px;
+    }
+
+
+    .product_info .buy_btn
+    {
+        width: calc(100% - 132px);
+    }
+
+
+    .product_info .quike_buy_btn,
+    .product_info .request_btn
+    {
+        width: 100%;
+    }
+
+
+    .product_info .features .label
+    {
+        width: 92px;
+    }
+
+
+    .product_info .features .val
+    {
+        width: calc(100% - 112px);
+    }
+
+
+
+    /*------------------
+        Product data
+    ------------------*/
+    .product_data .features .label
+    {
+        width: 130px;
+    }
+
+
+    .product_data .features .val
+    {
+        width: calc(100% - 150px);
+    }
+
+
+
+    .product_data .files .grid_row
+    {
+        --count_per_line: 1;
+    }
+
+
+    .product_data .files .grid_row > *:nth-child(1)
+    {
+        border-top-right-radius: var(--border_radius);
+    }
+
+
+    .product_data .files .grid_row > *:nth-last-child(1)
+    {
+        border-bottom-right-radius: var(--border_radius);
+        border-bottom-left-radius: var(--border_radius);
+    }
+
+
+
+    /*-------------------
+        Checkout info
+    -------------------*/
+    .checkout_info .delivery_methods .add_to_bill
+    {
+        width: 100%;
+        margin-top: var(--inner_gap_s);
+        margin-left: 0;
+
+        gap: var(--inner_gap_xs);
+    }
+
+
+    .checkout_info .address .line.small
+    {
+        width: 60px;
+        min-width: 60px;
+    }
+
+
+
+    /*----------------
+        Advantages
+    ----------------*/
+    .advantages .grid_row
+    {
+        --count_per_line: 1;
+    }
+
+
+    .advantages .grid_row > *:nth-child(2)
+    {
+        border-top-right-radius: 0;
+    }
+
+    .advantages .grid_row > *:nth-last-child(2)
+    {
+        border-bottom-left-radius: 0;
+    }
+
+
+    .advantages .grid_row > *:nth-child(1)
+    {
+        border-top-right-radius: var(--border_radius);
+    }
+
+    .advantages .grid_row > *:nth-last-child(1)
+    {
+        border-bottom-left-radius: var(--border_radius);
+    }
+
+
+
+    /*------------
+        Footer
+    ------------*/
+    footer .links
+    {
+        width: calc(50% - var(--cont_padding_half));
+    }
+
+
+    footer .links + .links
+    {
+        margin-left: auto;
+    }
+
+
+    footer .col
+    {
+        display: flex;
+        align-content: center;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        width: 100%;
+        margin-top: var(--cont_padding_double);
+    }
+
+
+    footer .copyright
+    {
+        width: 100%;
+    }
+
+
+    footer .privacy_policy_link
+    {
+        width: 100%;
+        margin-top: var(--cont_padding_half);
+        margin-left: 0;
+    }
+
+
+
+    /*-----------
+        PopUp
+    -----------*/
+    .modal
+    {
+        padding-inline: var(--cont_padding);
+    }
+}
