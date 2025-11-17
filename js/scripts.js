@@ -78,23 +78,31 @@ document.addEventListener('DOMContentLoaded', function() {
 	if ($('.product_info .images').length) {
 		const productThumbs = new Swiper('.product_info .thumbs .swiper', {
 			direction: 'vertical',
-			loop: true,
+			loop: false,
 			speed: 500,
 			watchSlidesProgress: true,
 			slideActiveClass: 'active',
 			slideVisibleClass: 'visible',
 			lazy: true,
-			spaceBetween: 10,
-			slidesPerView: 5,
 			navigation: {
 				nextEl: '.swiper-button-next',
 				prevEl: '.swiper-button-prev'
+			},
+			breakpoints: {
+				0: {
+					slidesPerView: 4,
+					spaceBetween: 4,
+				},
+				480: {
+					slidesPerView: 5,
+					spaceBetween: 10,
+				}
 			},
 		})
 
 		new Swiper('.product_info .big .swiper', {
 			direction: 'vertical',
-			loop: true,
+			loop: false,
 			speed: 500,
 			watchSlidesProgress: true,
 			slideActiveClass: 'active',
@@ -111,6 +119,14 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 		})
 	}
+
+
+	$('.product_data .spoler_btn').click(function(e) {
+		e.preventDefault()
+
+		$(this).toggleClass('active')
+		$(this).prev('.text_block').toggleClass('show_all')
+	})
 
 
 	// Advantages slider
@@ -501,42 +517,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	})
 
 
-	// Tabs
-	var locationHash = window.location.hash
-
-	$('body').on('click', '.tabs .btn', function(e) {
-		e.preventDefault()
-
-		if (!$(this).hasClass('active')) {
-			let parent = $(this).closest('.tabs_container'),
-				activeTab = $(this).data('content'),
-				activeTabContent = $(activeTab),
-				level = $(this).data('level')
-
-			parent.find('.tabs:first .btn').removeClass('active')
-			parent.find('.tab_content.' + level).removeClass('active')
-
-			$(this).addClass('active')
-			activeTabContent.addClass('active')
-		}
-	})
-
-	if (locationHash && $('.tabs_container').length) {
-		let activeTab = $(`.tabs button[data-content="${locationHash}"]`),
-			activeTabContent = $(locationHash),
-			parent = activeTab.closest('.tabs_container'),
-			level = activeTab.data('level')
-
-		parent.find('.tabs:first .btn').removeClass('active')
-		parent.find('.tab_content.' + level).removeClass('active')
-
-		activeTab.addClass('active')
-		activeTabContent.addClass('active')
-
-		$('html, body').stop().animate({ scrollTop: $activeTabContent.offset().top }, 1000)
-	}
-
-
 	// Smooth scrolling to anchor
 	const scrollBtns = document.querySelectorAll('.scroll_btn')
 
@@ -578,20 +558,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		$(subCol).removeClass('show').hide()
 	})
+
+
+	document.querySelectorAll('textarea').forEach(ta => {
+		autoTextareaResize(ta)
+
+		ta.addEventListener('input', () => autoTextareaResize(ta))
+	});
 })
 
 
 window.addEventListener('load', function () {
 	// Fix. header
-	headerInit = true,
-	headerHeight = $('header').outerHeight()
+	if (!$('header').hasClass('no_fixed')) {
+		headerInit = true,
+		headerHeight = $('header').outerHeight()
 
-	$('header').wrap('<div class="header_wrap"></div>')
-	$('.header_wrap').height(headerHeight)
+		$('header').wrap('<div class="header_wrap"></div>')
+		$('.header_wrap').height(headerHeight)
 
-	headerInit && $(window).scrollTop() > headerHeight
-		? $('header').addClass('fixed')
-		: $('header').removeClass('fixed')
+		headerInit && $(window).scrollTop() > headerHeight
+			? $('header').addClass('fixed')
+			: $('header').removeClass('fixed')
+	}
 })
 
 
@@ -607,19 +596,21 @@ window.addEventListener('resize', function () {
 
 
 		// Fix. header
-		headerInit = false
-		$('.header_wrap').height('auto')
+		if (!$('header').hasClass('no_fixed')) {
+			headerInit = false
+			$('.header_wrap').height('auto')
 
-		setTimeout(() => {
-			headerInit   = true
-			headerHeight = $('header').outerHeight()
+			setTimeout(() => {
+				headerInit = true
+				headerHeight = $('header').outerHeight()
 
-			$('.header_wrap').height(headerHeight)
+				$('.header_wrap').height(headerHeight)
 
-			headerInit && $(window).scrollTop() > headerHeight
-				? $('header').addClass('fixed')
-				: $('header').removeClass('fixed')
-		}, 100)
+				headerInit && $(window).scrollTop() > headerHeight
+					? $('header').addClass('fixed')
+					: $('header').removeClass('fixed')
+			}, 100)
+		}
 
 
 		// Mob. version
@@ -645,7 +636,25 @@ window.addEventListener('resize', function () {
 
 window.addEventListener('scroll', function () {
 	// Fix. header
-	typeof headerInit !== 'undefined' && headerInit && $(window).scrollTop() > headerHeight
-		? $('header').addClass('fixed')
-		: $('header').removeClass('fixed')
+	if (!$('header').hasClass('no_fixed')) {
+		typeof headerInit !== 'undefined' && headerInit && $(window).scrollTop() > headerHeight
+			? $('header').addClass('fixed')
+			: $('header').removeClass('fixed')
+	}
+
+	if (!$('.mob_header').hasClass('no_fixed')) {
+		$(window).scrollTop() > 0
+			? $('.mob_header').addClass('fixed')
+			: $('.mob_header').removeClass('fixed')
+	}
 })
+
+
+
+function autoTextareaResize(el) {
+    el.style.height = 'auto'
+
+    const border = el.offsetHeight - el.clientHeight
+
+    el.style.height = (el.scrollHeight + border) + 'px'
+}

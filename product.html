@@ -693,7 +693,7 @@
 											<span>В КОРЗИНЕ</span>
 										</button>
 
-										<button class="quike_buy_btn">КУПИТЬ В 1 КЛИК</button>
+										<button class="quike_buy_btn modal_btn" data-modal="quike_buy_modal">КУПИТЬ В 1 КЛИК</button>
 									</div>
 
 									<div class="features">
@@ -756,27 +756,31 @@
 				</section>
 
 
-				<section class="product_data tabs_container block">
+				<section class="product_data block">
 					<div class="cont">
-						<div class="tabs">
-							<button data-content="#tab1" data-level="level1" class="btn active">Описание</button>
+						<div class="anchors">
+							<button data-anchor="anchor1" class="btn scroll_btn">Описание</button>
 
-							<button data-content="#tab2" data-level="level1" class="btn">Характеристики</button>
+							<button data-anchor="anchor2" class="btn scroll_btn">Характеристики</button>
 
-							<button data-content="#tab3" data-level="level1" class="btn">Аксессуары</button>
+							<button data-anchor="anchor3" class="btn scroll_btn">Аксессуары</button>
 
-							<button data-content="#tab4" data-level="level1" class="btn">Документация</button>
+							<button data-anchor="anchor4" class="btn scroll_btn">Документация</button>
 
-							<button data-content="#tab5" data-level="level1" class="btn">Доставка</button>
+							<button data-anchor="anchor5" class="btn scroll_btn">Доставка</button>
 
-							<button data-content="#tab6" data-level="level1" class="btn">Оплата</button>
+							<button data-anchor="anchor6" class="btn scroll_btn">Оплата</button>
 
-							<button data-content="#tab7" data-level="level1" class="btn">Похожие товары</button>
+							<button data-anchor="anchor7" class="btn scroll_btn">Похожие товары</button>
 
-							<button data-content="#tab8" data-level="level1" class="btn">Аналоги</button>
+							<button data-anchor="anchor8" class="btn scroll_btn">Аналоги</button>
 						</div>
 
-						<div class="tab_content level1 active" id="tab1">
+						<div id="anchor1">
+							<div class="block_head">
+								<h2 class="title small">Описание</h2>
+							</div>
+
 							<div class="text_block">
 								<p>Датчик давления IFM Electronic PT5504 с аналоговым выходом 4-20 мА предназначен для контроля давления в диапазоне от 0 до 10 бар. Подходит для применения на подвижной технике. Датчик давления PT5504 имеет повышенную устойчивость к внешним воздействиям.</p>
 
@@ -790,9 +794,20 @@
 									<li>Технические характеристики необходимо сверять с документацией от производителя.</li>
 								</ul>
 							</div>
+
+							<button class="spoler_btn">
+								<span>Показать всё</span>
+								<span>Скрыть</span>
+
+								<svg class="icon"><use xlink:href="images/sprite.svg#ic_arr_ver"></use></svg>
+							</button>
 						</div>
 
-						<div class="tab_content level1" id="tab2">
+						<div id="anchor2">
+							<div class="block_head">
+								<h2 class="title small">Характеристики</h2>
+							</div>
+
 							<div class="features">
 								<div>
 									<div class="label">Производитель</div>
@@ -844,7 +859,11 @@
 							</div>
 						</div>
 
-						<div class="tab_content level1" id="tab3">
+						<div id="anchor3">
+							<div class="block_head">
+								<h2 class="title small">Аксессуары</h2>
+							</div>
+
 							<div class="products">
 								<div class="swiper">
 									<div class="swiper-wrapper">
@@ -1462,7 +1481,11 @@
 							</div>
 						</div>
 
-						<div class="tab_content level1" id="tab4">
+						<div id="anchor4">
+							<div class="block_head">
+								<h2 class="title small">Документация</h2>
+							</div>
+
 							<div class="files">
 								<div class="grid_row">
 									<a href="/" download class="file">
@@ -1518,35 +1541,53 @@
 							</div>
 						</div>
 
-						<div class="tab_content level1" id="tab5">
+						<div id="anchor5">
+							<div class="block_head">
+								<h2 class="title small">Доставка</h2>
+							</div>
+
 							<div class="text_block">
 								<p>Мы отправляем оборудование по всей России при помощи следующих компаний:</p>
 
 								<div class="delivery">
-									<picture class="image">
-										<img src="images/tmp/delivery_logo1.png" alt="" loading="lazy">
-									</picture>
-
-									<picture class="image">
-										<img src="images/tmp/delivery_logo2.png" alt="" loading="lazy">
-									</picture>
-
-									<picture class="image">
-										<img src="images/tmp/delivery_logo3.png" alt="" loading="lazy">
-									</picture>
+									<div class="image image1"></div>
+									<div class="image image2"></div>
+									<div class="image image3"></div>
 								</div>
 
 								<p>Мы ежедневно отправляем оборудование нашим клиентам во всех регионах России, поэтому при покупке у нас любой позиции - бесплатная доставка по Москве до транспортных компаний Деловые Линии, СДЭК. Стоимость доставки из Москвы до терминала транспортной компании Вашего города Вы можете узнать и рассчитать на сайтах компаний- грузоперевозчиков. Вы можете вызвать свою курьерскую компанию для получения из нашего офиса оплаченного и готового к отгрузке товара.</p>
 							</div>
+
+							<button class="spoler_btn">
+								<span>Показать всё</span>
+								<span>Скрыть</span>
+
+								<svg class="icon"><use xlink:href="images/sprite.svg#ic_arr_ver"></use></svg>
+							</button>
 						</div>
 
-						<div class="tab_content level1" id="tab6">
+						<div id="anchor6">
+							<div class="block_head">
+								<h2 class="title small">Оплата</h2>
+							</div>
+
 							<div class="text_block">
 								<p>Мы работаем только по безналичному расчету с юридическими лицами зарегистрированными в России. Оплата производится по выставленным счетам. При отгрузке оборудования вы получаете комплект документов для бухгалтерии. При необходимости, заключается договор на поставку. На товар из наличия или при заказе на сумму менее 10 тысяч рублей с НДС договоры не оформляем.</p>
 							</div>
+
+							<button class="spoler_btn">
+								<span>Показать всё</span>
+								<span>Скрыть</span>
+
+								<svg class="icon"><use xlink:href="images/sprite.svg#ic_arr_ver"></use></svg>
+							</button>
 						</div>
 
-						<div class="tab_content level1" id="tab7">
+						<div id="anchor7">
+							<div class="block_head">
+								<h2 class="title small">Похожие товары</h2>
+							</div>
+
 							<div class="products">
 								<div class="swiper">
 									<div class="swiper-wrapper">
@@ -2165,7 +2206,11 @@
 						</div>
 
 
-						<div class="tab_content level1" id="tab8">
+						<div id="anchor8">
+							<div class="block_head">
+								<h2 class="title small">Аналоги</h2>
+							</div>
+
 							<div class="analogues">
 								<div><a href="/">ИВ01-NO-PNP-P</a></div>
 
@@ -2185,6 +2230,13 @@
 							<div class="text_block">
 								<p>При подборе аналога учитывайте параметры оригинальной позиции, габаритные размеры датчика или разъема, характеристики, условия эксплуатации и т.д. Приведенные ниже маркировки имеют близкие параметры, однако, не являются 100% аналогами. Возможность замены необходимо уточнять по месту, исходя из конкретных условий эксплуатации и особенностей монтажа. Окончательное решение о применимости аналога и возможности замены принимает конечный пользователь.</p>
 							</div>
+
+							<button class="spoler_btn">
+								<span>Показать всё</span>
+								<span>Скрыть</span>
+
+								<svg class="icon"><use xlink:href="images/sprite.svg#ic_arr_ver"></use></svg>
+							</button>
 						</div>
 					</div>
 				</section>
@@ -2972,15 +3024,9 @@
 							</div>
 
 							<div class="socials">
-								<a href="/" target="_blank" rel="noopener nofollow">
-									<img src="images/youtube_logo.svg" alt="" loading="lazy">
-									<img src="images/youtube_logo_h.svg" alt="" loading="lazy">
-								</a>
+								<a href="/" target="_blank" rel="noopener nofollow" class="youtube_link"></a>
 
-								<a href="/" target="_blank" rel="noopener nofollow">
-									<img src="images/rutube_logo.svg" alt="" loading="lazy">
-									<img src="images/rutube_logo_h.svg" alt="" loading="lazy">
-								</a>
+								<a href="/" target="_blank" rel="noopener nofollow" class="rutube_link"></a>
 							</div>
 
 							<div class="creator">
@@ -2997,6 +3043,95 @@
 
 		<section class="modal" id="request_modal">
 			<div class="modal_title">Запрос на покупку</div>
+
+			<form action="" class="form">
+				<div class="line">
+					<div class="label">Организация, контактное лицо <span class="required">*</span></div>
+
+					<div class="field">
+						<input type="text" name="" value="" class="input">
+					</div>
+				</div>
+
+				<div class="line file">
+					<div class="field">
+						<label>
+							<input type="file" name="file">
+
+							<div class="selected empty">
+								<span></span>
+
+								<button type="button" class="delete_btn">
+									<svg class="icon"><use xlink:href="images/sprite.svg#ic_delete_circle"></use></svg>
+								</button>
+							</div>
+
+							<div class="btn">
+								<svg class="icon"><use xlink:href="images/sprite.svg#ic_file"></use></svg>
+
+								<span>Прикрепить файл c реквизитами</span>
+							</div>
+						</label>
+					</div>
+				</div>
+
+				<div class="columns">
+					<div class="line width1of3">
+						<div class="label">Регион, город <span class="required">*</span></div>
+
+						<div class="field">
+							<input type="text" name="" value="" class="input">
+						</div>
+					</div>
+
+					<div class="line width1of3">
+						<div class="label">Телефон <span class="required">*</span></div>
+
+						<div class="field">
+							<input type="tel" name="" value="" class="input">
+						</div>
+					</div>
+
+					<div class="line width1of3">
+						<div class="label">E-mail <span class="required">*</span></div>
+
+						<div class="field">
+							<input type="email" name="" value="" class="input">
+						</div>
+					</div>
+				</div>
+
+				<div class="line">
+					<div class="label">Комментарии</div>
+
+					<div class="field">
+						<textarea name=""></textarea>
+					</div>
+				</div>
+
+				<div class="line agree">
+					<div class="field">
+						<label class="checkbox">
+							<input type="checkbox" name="agree">
+
+							<div class="check">
+								<svg class="icon"><use xlink:href="images/sprite.svg#ic_check"></use></svg>
+							</div>
+
+							<div>Соглашаюсь на обработку моих персональных данных и принимаю <a href="/" target="_blank">политику конфиденциальности</a>.</div>
+						</label>
+					</div>
+				</div>
+
+				<div class="submit">
+					<button type="submit" class="submit_btn">ОТПРАВИТЬ</button>
+				</div>
+			</form>
+		</section>
+
+
+		<section class="modal" id="quike_buy_modal">
+			<div class="modal_title">Купить в один клик</div>
 
 			<form action="" class="form">
 				<div class="line">

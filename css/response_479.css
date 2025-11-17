@@ -139,14 +139,6 @@
     /*-------------
         Catalog
     -------------*/
-    .catalog .big_title
-    {
-        margin-bottom: 0;
-
-        font-size: 84px;
-    }
-
-
     .catalog .category
     {
         padding: 10px;
@@ -191,7 +183,7 @@
 
     .product_info .images .thumbs .swiper
     {
-        height: 340px;
+        height: 243px;
     }
 
 
@@ -204,7 +196,7 @@
     .product_info .images .big .swiper,
     .product_info .images .big .img
     {
-        height: 340px;
+        height: 243px;
     }
 
 

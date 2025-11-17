@@ -137,12 +137,6 @@
 
 
 
-    header.fixed .bottom
-    {
-        padding-block: var(--inner_gap_s);
-    }
-
-
     header.fixed .search
     {
         width: calc(100% - 448px);
@@ -404,6 +398,22 @@
     .product_info .buy_btn
     {
         margin-left: 0;
+    }
+
+
+
+    /*------------------
+        Product data
+    ------------------*/
+    .product_data .anchors
+    {
+        top: 76px;
+    }
+
+
+    .product_data .cont > *
+    {
+        scroll-margin-top: 155px;
     }
 
 
