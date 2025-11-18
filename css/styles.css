@@ -3747,15 +3747,8 @@ aside
     height: 24px;
 
     z-index: 3;
-    transition: color .2s linear;
 
     color: var(--dark_color);
-}
-
-
-.products .product .image:hover .video_icon
-{
-    color: var(--primary_color);
 }
 
 
