@@ -411,7 +411,7 @@
     }
 
 
-    .product_data .cont > *
+    .product_data .anchor_block
     {
         scroll-margin-top: 155px;
     }

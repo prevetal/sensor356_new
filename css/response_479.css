@@ -248,6 +248,12 @@
     /*------------------
         Product data
     ------------------*/
+    .product_data .anchors
+    {
+        top: 91px;
+    }
+
+
     .product_data .features .label
     {
         width: 130px;

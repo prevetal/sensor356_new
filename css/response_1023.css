@@ -509,7 +509,7 @@
     ------------------*/
     .product_data .anchors
     {
-        top: 0;
+        top: 108px;
 
         display: block;
         overflow: auto;
@@ -572,9 +572,9 @@
     }
 
 
-    .product_data .cont > *
+    .product_data .anchor_block
     {
-        scroll-margin-top: 72px;
+        scroll-margin-top: 179px;
     }
 
 
@@ -644,6 +644,16 @@
     .advantages .grid_row > *:nth-child(3)
     {
         border-top-right-radius: var(--border_radius);
+    }
+
+
+
+    /*-------------------
+        Category info
+    -------------------*/
+    .category_info .head
+    {
+        --sticky-top: 116px;
     }
 
 

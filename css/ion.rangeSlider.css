@@ -216,6 +216,7 @@ Build date: 2019-12-19 16:51:02
 {
     top: 0;
 
+    min-width: 1px;
     height: 8px;
 
     border-radius: 5px;

@@ -185,16 +185,6 @@
 
 
 
-    /*-------------
-        Sidebar
-    -------------*/
-    aside
-    {
-        margin-bottom: var(--cont_padding);
-    }
-
-
-
     /*---------------
         Page head
     ---------------*/
@@ -411,6 +401,64 @@
 
 
 
+    /*-------------------
+        Category info
+    -------------------*/
+    .category_info .head
+    {
+        position: sticky;
+        top: var(--sticky-top);
+
+        z-index: 5;
+
+        --sticky-top: 84px;
+    }
+
+
+    .category_info .head:before
+    {
+        position: absolute;
+        top: -8px;
+        left: 50%;
+
+        display: none;
+
+        width: 100vw;
+        height: calc(100% + 16px);
+
+        content: '';
+        z-index: -1;
+        transform: translateX(-50%);
+
+        background: var(--light_color);
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, .15);
+    }
+
+
+    .category_info .head.is_stuck:before
+    {
+        display: block;
+    }
+
+
+    .category_info .head .sort,
+    .category_info .head .limit
+    {
+        align-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 0;
+    }
+
+
+    .category_info .head .mob_filter_btn
+    {
+        display: flex;
+    }
+
+
+
     /*------------
         Brands
     ------------*/
@@ -580,17 +628,81 @@
     /*------------
         Filter
     ------------*/
-    .filter .mob_btn
+    .filter
     {
-        display: block;
+        position: fixed;
+        top: 0;
+        left: 100%;
+
+        width: 100%;
+        height: 100%;
+        min-height: -moz-available;
+        min-height: -webkit-fill-available;
+        min-height:         fill-available;
+        padding-block: 58px 0;
+
+        z-index: 101;
+        transition: transform .3s linear;
+
+        background: #f6f6f6;
+    }
+
+
+    .filter.show
+    {
+        transform: translateX(-100%);
+    }
+
+
+    .filter .mob_head
+    {
+        display: flex;
     }
 
 
     .filter .form
     {
-        display: none;
+        display: flex;
+        overflow: auto;
+        flex-direction: column;
 
-        margin-top: var(--cont_padding);
+        height: 100%;
+        min-height: -moz-available;
+        min-height: -webkit-fill-available;
+        min-height:         fill-available;
+        padding-bottom: 80px;
+
+        overscroll-behavior-y: contain;
+    }
+
+
+    .filter .form .submit
+    {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        display: flex;
+        align-content: center;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        width: 100%;
+        padding: 20px;
+
+        z-index: 10;
+
+        background: #f6f6f6;
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, .15);
+    }
+
+
+    .filter .submit_btn,
+    .filter .reset_btn
+    {
+        width: auto;
     }
 
 
@@ -788,7 +900,6 @@
     .cart_info aside
     {
         margin-top: var(--cont_padding);
-        margin-bottom: 0;
     }
 
 

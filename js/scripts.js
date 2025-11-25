@@ -470,6 +470,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 	// Filter
+	initSticky()
+
+	$('.mob_filter_btn, .filter .mob_head .close_btn').click(function(e) {
+		e.preventDefault()
+
+		$('.filter').toggleClass('show')
+	})
+
 	$('.filter .mob_btn').click(function(e) {
 		e.preventDefault()
 
@@ -518,22 +526,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 	// Smooth scrolling to anchor
-	const scrollBtns = document.querySelectorAll('.scroll_btn')
+	document.querySelectorAll('.scroll_btn').forEach(btn => {
+		btn.addEventListener('click', function(e) {
+			e.preventDefault()
 
-	if (scrollBtns) {
-		scrollBtns.forEach(element => {
-			element.addEventListener('click', e => {
-				e.preventDefault()
+			const anchorId = e.currentTarget.dataset.anchor,
+				el = document.getElementById(anchorId)
 
-				let anchor = element.getAttribute('data-anchor')
+			if (!el) return
 
-				document.getElementById(anchor).scrollIntoView({
-					behavior: 'smooth',
-					block: 'start'
-				}, 1000)
-			})
+			el.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start'
+			}, 1000)
+
+			history.replaceState(null, '', '#' + anchorId)
+
+			const container = e.currentTarget.closest('.product_data')
+
+			if (container) {
+				container.querySelectorAll('.scroll_btn').forEach(b => b.classList.remove('active'))
+			}
+
+			e.currentTarget.classList.add('active')
 		})
-	}
+	})
 
 
 	// Header catalog
@@ -564,7 +581,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		autoTextareaResize(ta)
 
 		ta.addEventListener('input', () => autoTextareaResize(ta))
-	});
+	})
+
+
+	categoryHead = document.querySelector('.category_info .head'),
+		getStickyTop = () => parseInt(getComputedStyle(categoryHead).getPropertyValue('--sticky-top'))
 })
 
 
@@ -593,6 +614,10 @@ window.addEventListener('resize', function () {
 	if (typeof WW !== 'undefined' && WW != windowW) {
 		// Overwrite window width
 		WW = window.innerWidth || document.clientWidth || BODY.clientWidth
+
+
+		// Filter
+		initSticky()
 
 
 		// Fix. header
@@ -647,6 +672,17 @@ window.addEventListener('scroll', function () {
 			? $('.mob_header').addClass('fixed')
 			: $('.mob_header').removeClass('fixed')
 	}
+
+
+	// Category head
+	if (categoryHead) {
+		const top = categoryHead.getBoundingClientRect().top,
+			stickyTop = getStickyTop()
+
+		top <= stickyTop
+			? categoryHead.classList.add('is_stuck')
+			: categoryHead.classList.remove('is_stuck')
+	}
 })
 
 
@@ -657,4 +693,36 @@ function autoTextareaResize(el) {
     const border = el.offsetHeight - el.clientHeight
 
     el.style.height = (el.scrollHeight + border) + 'px'
+}
+
+
+
+function initSticky() {
+    const $filter = $('.filter')
+
+	let topOffset = 0
+
+    if ($filter.data('hcSticky')) {
+        $filter.hcSticky('destroy')
+    }
+
+    if (window.innerWidth >= 1280 && window.innerWidth < 1440) {
+        topOffset = 86
+    }
+
+    if (window.innerWidth >= 1440 && window.innerWidth < 1900) {
+        topOffset = 90
+    }
+
+	if (window.innerWidth >= 1900) {
+        topOffset = 96
+    }
+
+	if (window.innerWidth >= 1280) {
+		$filter.hcSticky({
+			stickTo: $('aside'),
+			top: topOffset,
+			bottom: 10
+		})
+	}
 }

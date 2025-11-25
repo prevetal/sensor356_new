@@ -327,7 +327,8 @@
     {
         justify-content: space-between;
 
-        gap: var(--inner_gap_xs);
+        --sticky-top: 99px;
+        gap: var(--inner_gap);
     }
 
 
@@ -471,6 +472,18 @@
     /*------------------
         Product data
     ------------------*/
+    .product_data .anchors
+    {
+        top: 92px;
+    }
+
+
+    .product_data .anchor_block
+    {
+        scroll-margin-top: 160px;
+    }
+
+
     .product_data .text_block
     {
         position: relative;
@@ -493,7 +506,7 @@
         max-height: 100%;
 
         content: '';
-        z-index: 10;
+        z-index: 5;
 
         background: linear-gradient(180deg, rgba(255, 255, 255, .00) 0%, #fff 100%);
     }
