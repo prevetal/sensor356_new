@@ -4967,6 +4967,14 @@ aside
 /*-------------------
     Category info
 -------------------*/
+.category_info
+{
+    position: relative;
+
+    z-index: 3;
+}
+
+
 .category_info .head
 {
     display: flex;

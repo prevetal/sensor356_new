@@ -554,7 +554,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 	// Header catalog
-	$('header .catalog_menu .col a .icon').click(function(e) {
+	const eventType = is_touch_device() ? 'click' : 'mouseenter'
+
+	$('header .catalog_menu .col a[data-sub-col]').on(eventType, function (e) {
 		e.preventDefault()
 
 		const subCol = $(this).closest('a').data('sub-col')
@@ -566,6 +568,15 @@ document.addEventListener('DOMContentLoaded', function() {
 			$('header .catalog_menu .sub_col').removeClass('show').hide()
 			$('header .catalog_menu .sub_col_' + subCol).addClass('show').fadeIn(300)
 		}
+	})
+
+	$('header .catalog_menu .col:not(.sub_col):not(.sub_sub_col) a:not([data-sub-col])').mouseenter(function (e) {
+		$('header .catalog_menu .sub_col').removeClass('show').hide()
+	})
+
+
+	$('header .catalog_menu .col.sub_col a:not([data-sub-col])').mouseenter(function (e) {
+		$('header .catalog_menu .sub_sub_col').removeClass('show').hide()
 	})
 
 	$('header .catalog_menu .col .back_btn').click(function(e) {
