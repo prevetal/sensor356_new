@@ -595,8 +595,93 @@ document.addEventListener('DOMContentLoaded', function() {
 	})
 
 
-	categoryHead = document.querySelector('.category_info .head'),
-		getStickyTop = () => parseInt(getComputedStyle(categoryHead).getPropertyValue('--sticky-top'))
+	categoryHead = document.querySelector('.category_info .head')
+
+	getStickyTop = () => parseInt(getComputedStyle(categoryHead).getPropertyValue('--sticky-top'))
+
+
+	// Custom submit
+	$('.action_form .form').submit(function(e) {
+		e.preventDefault()
+
+		let form = $(this),
+    		isValid = true
+
+		form.find('[required]').each(function() {
+			let field = $(this),
+				value = field.val()?.trim()
+
+			if (field.attr('type') === 'checkbox') {
+				if (!field.is(':checked')) {
+					field.closest('label').addClass('error')
+					isValid = false
+				} else {
+					field.closest('label').removeClass('error')
+				}
+			} else {
+				if (!value) {
+					field.addClass('error')
+					isValid = false
+				} else {
+					field.removeClass('error')
+				}
+			}
+		})
+
+		if (!isValid) return
+	})
+
+
+	function validateCheckoutForm() {
+		let form = $('.checkout_info .form'),
+			isValid = true
+
+		// Проверяем required поля формы
+		form.find('[required]').each(function () {
+			let field = $(this),
+				value = field.val()?.trim()
+
+			if (!value) {
+				field.addClass('error')
+				isValid = false
+			} else {
+				field.removeClass('error')
+			}
+		})
+
+		let checkbox = $('.cart_info .agree .checkbox input')
+
+		if (!checkbox.is(':checked')) {
+			checkbox.closest('label').addClass('error')
+			isValid = false
+		} else {
+			checkbox.closest('label').removeClass('error')
+		}
+
+		return isValid
+	}
+
+
+	$('.checkout_info .form').on('submit', function (e) {
+		e.preventDefault()
+
+		if (!validateCheckoutForm()) return
+	})
+
+	$('.cart_info .checkout_btn').on('click', function (e) {
+		e.preventDefault()
+
+		if (!validateCheckoutForm()) return
+	})
+
+
+	$(document).on('input change', '.action_form [required], .checkout_info [required], .cart_info .agree [required]', function() {
+    	let field = $(this)
+
+		field.attr('type') === 'checkbox'
+			? field.closest('label').removeClass('error')
+			: field.removeClass('error')
+	})
 })
 
 

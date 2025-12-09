@@ -314,6 +314,12 @@
     /*--------------
         Products
     --------------*/
+    .products .grid_row
+    {
+        --count_per_line: 4;
+    }
+
+
     .products .list .product .info
     {
         max-width: calc(100% - 552px);

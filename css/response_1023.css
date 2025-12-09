@@ -425,6 +425,12 @@
     /*--------------
         Products
     --------------*/
+    .products .grid_row
+    {
+        --count_per_line: 2;
+    }
+
+
     .products .list .product
     {
         padding-left: 224px;

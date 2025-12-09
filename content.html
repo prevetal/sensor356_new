@@ -1804,13 +1804,15 @@
 								<div class="title">Отправьте запрос<br> на интересующие вас товарные позиции</div>
 							</div>
 
-							<form action="" class="form">
+							<form action="" class="form" novalidate>
 								<div class="columns">
 									<div class="line">
 										<div class="label">Ваше имя <span class="required">*</span></div>
 
 										<div class="field">
-											<input type="text" name="" value="" class="input">
+											<input type="text" name="" value="" class="input" required>
+
+											<div class="error_text">Необходимо указать имя</div>
 										</div>
 									</div>
 
@@ -1818,7 +1820,9 @@
 										<div class="label">Телефон <span class="required">*</span></div>
 
 										<div class="field">
-											<input type="tel" name="" value="" class="input">
+											<input type="tel" name="" value="" class="input" required>
+
+											<div class="error_text">Необходимо указать телефон</div>
 										</div>
 									</div>
 
@@ -1826,7 +1830,9 @@
 										<div class="label">E-mail <span class="required">*</span></div>
 
 										<div class="field">
-											<input type="email" name="" value="" class="input">
+											<input type="email" name="" value="" class="input" required>
+
+											<div class="error_text">Необходимо указать email</div>
 										</div>
 									</div>
 								</div>
@@ -1864,7 +1870,7 @@
 								<div class="line agree">
 									<div class="field">
 										<label class="checkbox">
-											<input type="checkbox" name="agree">
+											<input type="checkbox" name="agree" required>
 
 											<div class="check">
 												<svg class="icon"><use xlink:href="images/sprite.svg#ic_check"></use></svg>
@@ -1872,6 +1878,8 @@
 
 											<div>Соглашаюсь на обработку моих персональных данных и принимаю <a href="/" target="_blank">политику конфиденциальности</a>.</div>
 										</label>
+
+										<div class="error_text">Необходимо отметить</div>
 									</div>
 								</div>
 

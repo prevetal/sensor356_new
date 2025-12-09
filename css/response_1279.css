@@ -478,6 +478,12 @@
     }
 
 
+    .products .grid_row
+    {
+        --count_per_line: 3;
+    }
+
+
     .products .product .buy_btn,
     .products .product .btns .btn
     {
