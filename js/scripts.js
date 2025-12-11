@@ -603,7 +603,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 	// Custom submit
-	$('.action_form .form').submit(function(e) {
+	$('body').on('submit', '.action_form .form, #quike_buy_modal .form, #request_modal .form', function (e) {
 		e.preventDefault()
 
 		let form = $(this),

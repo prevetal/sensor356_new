@@ -1565,12 +1565,14 @@
 		<section class="modal" id="request_modal">
 			<div class="modal_title">Запрос на покупку</div>
 
-			<form action="" class="form">
+			<form action="" class="form" novalidate>
 				<div class="line">
 					<div class="label">Организация, контактное лицо <span class="required">*</span></div>
 
 					<div class="field">
-						<input type="text" name="" value="" class="input">
+						<input type="text" name="" value="" class="input" required>
+
+						<div class="error_text">Необходимо указать организацию, контактное лицо</div>
 					</div>
 				</div>
 
@@ -1601,7 +1603,9 @@
 						<div class="label">Регион, город <span class="required">*</span></div>
 
 						<div class="field">
-							<input type="text" name="" value="" class="input">
+							<input type="text" name="" value="" class="input" required>
+
+							<div class="error_text">Необходимо указать регион, город</div>
 						</div>
 					</div>
 
@@ -1609,7 +1613,9 @@
 						<div class="label">Телефон <span class="required">*</span></div>
 
 						<div class="field">
-							<input type="tel" name="" value="" class="input">
+							<input type="tel" name="" value="" class="input" required>
+
+							<div class="error_text">Необходимо указать телефон</div>
 						</div>
 					</div>
 
@@ -1617,7 +1623,9 @@
 						<div class="label">E-mail <span class="required">*</span></div>
 
 						<div class="field">
-							<input type="email" name="" value="" class="input">
+							<input type="email" name="" value="" class="input" required>
+
+							<div class="error_text">Необходимо указать email</div>
 						</div>
 					</div>
 				</div>
@@ -1633,7 +1641,7 @@
 				<div class="line agree">
 					<div class="field">
 						<label class="checkbox">
-							<input type="checkbox" name="agree">
+							<input type="checkbox" name="agree" required>
 
 							<div class="check">
 								<svg class="icon"><use xlink:href="images/sprite.svg#ic_check"></use></svg>
@@ -1641,6 +1649,8 @@
 
 							<div>Соглашаюсь на обработку моих персональных данных и принимаю <a href="/" target="_blank">политику конфиденциальности</a>.</div>
 						</label>
+
+						<div class="error_text">Необходимо отметить</div>
 					</div>
 				</div>
 
