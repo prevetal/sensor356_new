@@ -565,7 +565,9 @@ document.addEventListener('DOMContentLoaded', function() {
 			$('header .catalog_menu .sub_sub_col').removeClass('show').hide()
 			$('header .catalog_menu .sub_sub_col_' + subCol).addClass('show').fadeIn(300)
 		} else {
+			$('header .catalog_menu .sub_sub_col').removeClass('show').hide()
 			$('header .catalog_menu .sub_col').removeClass('show').hide()
+
 			$('header .catalog_menu .sub_col_' + subCol).addClass('show').fadeIn(300)
 		}
 	})
