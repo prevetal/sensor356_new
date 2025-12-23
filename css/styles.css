@@ -6335,8 +6335,6 @@ aside
 .product_data .anchors .btn:hover,
 .product_data .anchors .btn.active
 {
-    font-weight: 500;
-
     color: var(--primary_color);
 }
 
