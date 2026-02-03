@@ -490,6 +490,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		$(this).toggleClass('active')
 		$(this).next('.data').slideToggle(300)
+		$('.filter .fixed_submit_btn').hide()
 	})
 
 	$('.filter .spoler_btn').click(function(e) {
@@ -497,6 +498,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		$(this).toggleClass('active')
 		$(this).closest('.data').toggleClass('show_all')
+		$('.filter .fixed_submit_btn').hide()
+	})
+
+	$('.filter .checkbox input').change(function() {
+		const field = $(this).closest('.field')
+
+		const offsetTop =
+			field.position().top
+			+ field.outerHeight() * 0.5
+
+		$('.filter .fixed_submit_btn')
+			.css('top', offsetTop)
+			.fadeIn(300)
+	})
+
+	$('.filter .scroll').on('scroll', function() {
+		const btn = $(this).closest('.filter').find('.fixed_submit_btn')
+
+		btn.fadeOut(200)
 	})
 
 

@@ -294,9 +294,9 @@
     /*------------
         Filter
     ------------*/
-    .filter .item .field + .field
+    .filter .scroll
     {
-        margin-top: 12px;
+        gap: 12px;
     }
 
 

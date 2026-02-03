@@ -712,6 +712,12 @@
     }
 
 
+    .filter .fixed_submit_btn
+    {
+        display: none !important;
+    }
+
+
 
     /*------------------
         Product info

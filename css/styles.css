@@ -4726,6 +4726,8 @@ aside
 
 .filter .form
 {
+    position: relative;
+
     border-radius: var(--border_radius);
     background: #f6f6f6;
 
@@ -4735,11 +4737,14 @@ aside
 
 .filter .scroll
 {
+    display: flex;
     overflow-x: hidden;
     overflow-y: auto;
+    flex-direction: column;
 
     max-height: 212px;
 
+    gap: 16px;
     overscroll-behavior-y: contain;
     --custom_scroll_width: 4px;
     --custom_scroll_height: 4px;
@@ -4824,12 +4829,6 @@ aside
 .filter .item .data.show_all .field:nth-child(5) ~ .field
 {
     display: block;
-}
-
-
-.filter .item .field + .field
-{
-    margin-top: 16px;
 }
 
 
@@ -4984,6 +4983,62 @@ aside
 .filter .reset_btn:hover
 {
     color: var(--primary_color);
+}
+
+
+.filter .fixed_submit_btn
+{
+    position: absolute;
+    top: 0;
+    left: 100%;
+
+    display: none;
+
+    padding-block: 24px;
+    padding-inline: 26px;
+
+    font-weight: 600;
+
+    z-index: 9;
+    transition: background .2s linear;
+    transform: translateY(-50%);
+    white-space: nowrap;
+
+    color: var(--light_color);
+    border-radius: 6px;
+    background: var(--primary_color);
+}
+
+
+.filter .fixed_submit_btn:before
+{
+    position: absolute;
+    top: 0;
+    right: 100%;
+    bottom: 0;
+
+    width: 8px;
+    height: 12px;
+    margin-block: auto;
+
+    content: '';
+    transition: border-color .2s linear;
+
+    border-top: 6px solid transparent;
+    border-right: 8px solid var(--primary_color);
+    border-bottom: 6px solid transparent;
+}
+
+
+.filter .fixed_submit_btn:hover
+{
+    background: var(--dark_color);
+}
+
+
+.filter .fixed_submit_btn:hover:before
+{
+    border-right-color: var(--dark_color);
 }
 
 
