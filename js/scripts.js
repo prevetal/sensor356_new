@@ -225,25 +225,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 	// Fancybox
-	Fancybox.defaults.autoFocus = false
-	Fancybox.defaults.trapFocus = false
-	Fancybox.defaults.dragToClose = false
-	Fancybox.defaults.placeFocusBack = false
-	Fancybox.defaults.l10n = {
-		CLOSE: 'Закрыть',
-		NEXT: 'Следующий',
-		PREV: 'Предыдущий',
-		MODAL: 'Вы можете закрыть это модальное окно нажав клавишу ESC'
-	}
+	const fancyOptions = {
+		dragToClose: false,
+		placeFocusBack: false,
+		l10n: {
+			CLOSE: 'Закрыть',
+			NEXT: 'Следующий',
+			PREV: 'Предыдущий',
+			MODAL: 'Вы можете закрыть это модальное окно нажав клавишу ESC'
+		},
+		on: {
+			ready: (fancybox) => {
+				const container = fancybox.getContainer()
 
-	Fancybox.defaults.tpl = {
-		closeButton: '<button data-fancybox-close class="f-button is-close-btn" title="{{CLOSE}}"><svg><use xlink:href="images/sprite.svg#ic_close"></use></svg></button>',
+				const btn = container.querySelector('.is-close-button')
 
-		main: `<div class="fancybox__container" role="dialog" aria-modal="true" aria-label="{{MODAL}}" tabindex="-1">
-			<div class="fancybox__backdrop"></div>
-			<div class="fancybox__carousel"></div>
-			<div class="fancybox__footer"></div>
-		</div>`,
+				if (btn) {
+					btn.classList.add('is-close-btn')
+					btn.innerHTML = '<svg><use xlink:href="images/sprite.svg#ic_close_big"></use></svg>'
+				}
+			},
+		}
 	}
 
 
@@ -253,15 +255,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		Fancybox.close()
 
-		Fancybox.show([{
-			src: document.getElementById(e.target.getAttribute('data-modal')),
-			type: 'inline'
-		}])
+		Fancybox.show(
+			[{
+				src: `#${e.target.getAttribute('data-modal')}`,
+				type: 'inline'
+			}],
+			fancyOptions
+		)
 	})
 
 
 	// Zoom images
 	Fancybox.bind('.fancy_img', {
+		...fancyOptions,
 		Image: {
 			zoom: false
 		},
@@ -574,12 +580,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 	// Header catalog
-	const eventType = is_touch_device() ? 'click' : 'mouseenter'
-
-	$('header .catalog_menu .col a[data-sub-col]').on(eventType, function (e) {
+	$('header .catalog_menu .col .catalog_link[data-sub-col]').on('mouseenter', function (e) {
 		e.preventDefault()
 
-		const subCol = $(this).closest('a').data('sub-col')
+		const subCol = $(this).data('sub-col')
 
 		if ($(this).closest('.col').hasClass('sub_col')) {
 			$('header .catalog_menu .sub_sub_col').removeClass('show').hide()
@@ -592,12 +596,12 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	})
 
-	$('header .catalog_menu .col:not(.sub_col):not(.sub_sub_col) a:not([data-sub-col])').mouseenter(function (e) {
+	$('header .catalog_menu .col:not(.sub_col):not(.sub_sub_col) .catalog_link:not([data-sub-col])').mouseenter(function (e) {
 		$('header .catalog_menu .sub_col').removeClass('show').hide()
 	})
 
 
-	$('header .catalog_menu .col.sub_col a:not([data-sub-col])').mouseenter(function (e) {
+	$('header .catalog_menu .col.sub_col .catalog_link:not([data-sub-col])').mouseenter(function (e) {
 		$('header .catalog_menu .sub_sub_col').removeClass('show').hide()
 	})
 
@@ -704,7 +708,79 @@ document.addEventListener('DOMContentLoaded', function() {
 			? field.closest('label').removeClass('error')
 			: field.removeClass('error')
 	})
+
+
+	// Brand page
+	$('.brand_page .spoler_btn').click(function(e) {
+		const $btn = $(this),
+			parent = $btn.closest('.brand_page')
+
+		$btn.toggleClass('active')
+		parent.find('.text_block').toggleClass('show')
+
+		if (!$btn.hasClass('active')) {
+			requestAnimationFrame(() => {
+				const btnOffsetTop = $btn.offset().top,
+					btnHeight = $btn.outerHeight(),
+					winHeight = $(window).height(),
+					offsetBottom = 20
+
+				const scrollTo = btnOffsetTop - winHeight + btnHeight + offsetBottom
+
+				$('html, body').animate({
+					scrollTop: scrollTo
+				}, 0)
+			})
+		}
+	})
+
+
+
+	// Brand categories
+	setCategoriesState(true)
+
+
+	$('.brand_page .categories .main a').click(function(e) {
+		e.preventDefault()
+
+		const item = $(this).closest('.item')
+
+		$(this).toggleClass('active')
+
+		item.toggleClass('open')
+			.find('.sub')
+			.slideToggle(300)
+	})
 })
+
+
+
+// Brand categories
+let wasDesktop = $(window).width() >= 1024
+let resizeTimer
+
+
+function setCategoriesState(instant) {
+	$('.brand_page .categories .main a').each(function() {
+		const link = $(this),
+			item = link.closest('.item'),
+			sub = item.find('.sub'),
+			isDesktop = $(window).width() >= 1024
+
+		if (isDesktop) {
+			link.addClass('active')
+			item.addClass('open')
+
+			instant ? sub.show() : sub.slideDown(300)
+		} else {
+			link.removeClass('active')
+			item.removeClass('open')
+
+			instant ? sub.hide() : sub.slideUp(300)
+		}
+	})
+}
+
 
 
 window.addEventListener('load', function () {
@@ -754,6 +830,19 @@ window.addEventListener('resize', function () {
 					: $('header').removeClass('fixed')
 			}, 100)
 		}
+
+
+		// Brand categories
+		clearTimeout(resizeTimer)
+		resizeTimer = setTimeout(function() {
+			const isDesktop = $(window).width() >= 1024
+
+			if (isDesktop !== wasDesktop) {
+				wasDesktop = isDesktop
+
+				setCategoriesState(false)
+			}
+		}, 150)
 
 
 		// Mob. version

@@ -455,6 +455,72 @@
 
 
 
+    /*----------------
+        Brand page
+    ----------------*/
+    .brand_page .data .info
+    {
+        width: 320px;
+    }
+
+
+    .brand_page .data .item .label,
+    .brand_page .data .item .val
+    {
+        font-size: var(--font_size);
+    }
+
+
+    .brand_page .data .item.inline .label
+    {
+        width: 68px;
+    }
+
+
+    .brand_page .data .item.inline .val
+    {
+        width: calc(100% - 76px);
+    }
+
+
+    .brand_page .data .cert
+    {
+        width: 275px;
+    }
+
+
+    .brand_page .data .cert .name
+    {
+        font-size: var(--font_size);
+    }
+
+
+
+    .brand_page .categories .item
+    {
+        padding: 16px;
+    }
+
+
+    .brand_page .categories .main span
+    {
+        width: calc(100% - 19px);
+    }
+
+
+    .brand_page .categories .sub a
+    {
+        padding: 2px 0 4px 22px;
+    }
+
+
+    .brand_page .categories .sub a:before
+    {
+        left: 0;
+    }
+
+
+
     /*------------
         Footer
     ------------*/
