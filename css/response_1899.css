@@ -393,9 +393,9 @@
 
     footer .socials
     {
-        width: auto;
-
         gap: var(--inner_gap);
+
+        width: auto;
     }
 
 

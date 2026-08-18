@@ -67,9 +67,9 @@
 
     .breadcrumbs
     {
-        line-height: calc(100% + var(--line_height));
-
         gap: 0 8px;
+
+        line-height: calc(100% + var(--line_height));
     }
 
 
@@ -296,9 +296,9 @@
 
     .news .item
     {
-        min-height: 0;
-
         gap: var(--inner_gap_xs);
+
+        min-height: 0;
     }
 
 
@@ -326,9 +326,9 @@
     .category_info .head
     {
         justify-content: space-between;
+        gap: var(--inner_gap);
 
         --sticky-top: 99px;
-        gap: var(--inner_gap);
     }
 
 
@@ -357,9 +357,9 @@
 
     .products .list .product
     {
-        padding: 4px;
-
         gap: var(--inner_gap_xs);
+
+        padding: 4px;
     }
 
 
@@ -448,9 +448,9 @@
 
     .product_info .buy
     {
-        margin-top: 16px;
-
         gap: var(--inner_gap_s);
+
+        margin-top: 16px;
     }
 
 

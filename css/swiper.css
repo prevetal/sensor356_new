@@ -88,14 +88,13 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: flex-start;
+    gap: var(--cont_padding);
 
     width: var(--content_width);
     height: 4px;
     margin-inline: auto;
 
     pointer-events: none;
-
-    gap: var(--cont_padding);
 }
 
 

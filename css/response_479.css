@@ -292,11 +292,11 @@
     -------------------*/
     .checkout_info .delivery_methods .add_to_bill
     {
+        gap: var(--inner_gap_xs);
+
         width: 100%;
         margin-top: var(--inner_gap_s);
         margin-left: 0;
-
-        gap: var(--inner_gap_xs);
     }
 
 
