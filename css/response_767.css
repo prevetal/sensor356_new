@@ -684,6 +684,70 @@
 
 
 
+    /*----------------
+        Brand page
+    ----------------*/
+    .brand_page .text_block
+    {
+        height: 715px;
+    }
+
+
+    .brand_page .data .info
+    {
+        width: 100%;
+    }
+
+
+    .brand_page .data .name
+    {
+        font-size: 22px;
+    }
+
+
+    .brand_page .data .cert
+    {
+        align-content: center;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        width: 100%;
+        padding-block: var(--inner_gap_xs);
+
+        text-align: center;
+    }
+
+
+    .brand_page .data .cert .icon
+    {
+        display: block;
+    }
+
+
+    .brand_page .data .cert .thumb
+    {
+        order: 3;
+
+        width: 54px;
+        height: auto;
+    }
+
+
+    .brand_page .categories
+    {
+        margin-top: 60px;
+    }
+
+
+    .brand_page .categories .grid_row
+    {
+        --count_per_line: 2;
+    }
+
+
+
     /*------------
         Footer
     ------------*/

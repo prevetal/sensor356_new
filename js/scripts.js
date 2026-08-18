@@ -574,12 +574,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 	// Header catalog
-	const eventType = is_touch_device() ? 'click' : 'mouseenter'
-
-	$('header .catalog_menu .col a[data-sub-col]').on(eventType, function (e) {
+	$('header .catalog_menu .col .catalog_link[data-sub-col]').on('mouseenter', function (e) {
 		e.preventDefault()
 
-		const subCol = $(this).closest('a').data('sub-col')
+		const subCol = $(this).data('sub-col')
 
 		if ($(this).closest('.col').hasClass('sub_col')) {
 			$('header .catalog_menu .sub_sub_col').removeClass('show').hide()
@@ -592,12 +590,12 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	})
 
-	$('header .catalog_menu .col:not(.sub_col):not(.sub_sub_col) a:not([data-sub-col])').mouseenter(function (e) {
+	$('header .catalog_menu .col:not(.sub_col):not(.sub_sub_col) .catalog_link:not([data-sub-col])').mouseenter(function (e) {
 		$('header .catalog_menu .sub_col').removeClass('show').hide()
 	})
 
 
-	$('header .catalog_menu .col.sub_col a:not([data-sub-col])').mouseenter(function (e) {
+	$('header .catalog_menu .col.sub_col .catalog_link:not([data-sub-col])').mouseenter(function (e) {
 		$('header .catalog_menu .sub_sub_col').removeClass('show').hide()
 	})
 
@@ -704,7 +702,27 @@ document.addEventListener('DOMContentLoaded', function() {
 			? field.closest('label').removeClass('error')
 			: field.removeClass('error')
 	})
+
+
+	// Brand page
+	$('.brand_page .spoler_btn').click(function(e) {
+		const parent = $(this).closest('.brand_page')
+
+		$(this).toggleClass('active')
+		parent.find('.text_block').toggleClass('show')
+	})
+
+
+	$('.brand_page .categories .main a').click(function(e) {
+		e.preventDefault()
+
+		const item = $(this).closest('.item')
+
+		$(this).toggleClass('active')
+		item.find('.sub').slideToggle(300)
+	})
 })
+
 
 
 window.addEventListener('load', function () {

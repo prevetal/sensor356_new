@@ -340,6 +340,28 @@
 
 
 
+    /*----------------
+        Brand page
+    ----------------*/
+    .brand_page .text_block
+    {
+        height: 722px;
+    }
+
+
+    .brand_page .data .name
+    {
+        font-size: 20px;
+    }
+
+
+    .brand_page .categories .grid_row
+    {
+        --count_per_line: 1;
+    }
+
+
+
     /*------------
         Footer
     ------------*/

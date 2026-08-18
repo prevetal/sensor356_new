@@ -664,6 +664,37 @@
 
 
 
+    /*----------------
+        Brand page
+    ----------------*/
+    .brand_page .data
+    {
+        float: none;
+
+        width: 100%;
+        margin-right: 0;
+    }
+
+
+    .brand_page .data .info
+    {
+        width: calc(100% - 275px - var(--inner_gap));
+    }
+
+
+    .brand_page .text_block
+    {
+        height: 610px;
+    }
+
+
+    .brand_page .categories .grid_row
+    {
+        --count_per_line: 3;
+    }
+
+
+
     /*------------
         Footer
     ------------*/
