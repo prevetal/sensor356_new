@@ -8271,11 +8271,18 @@ aside
     max-width: 100%;
     padding: var(--inner_block_padding);
 
+    transition: background .2s linear;
     text-decoration: none;
 
     color: currentColor;
     border-radius: var(--border_radius);
     background: #f6f6f6;
+}
+
+
+.brand_page .data .cert:hover
+{
+    background: #ababab;
 }
 
 
@@ -8424,13 +8431,6 @@ aside
 .brand_page .spoler_btn.active span
 {
     display: none;
-}
-
-
-.brand_page .spoler_btn:hover,
-.brand_page .spoler_btn.active
-{
-    color: var(--primary_color);
 }
 
 

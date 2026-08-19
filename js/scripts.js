@@ -225,25 +225,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 	// Fancybox
-	Fancybox.defaults.autoFocus = false
-	Fancybox.defaults.trapFocus = false
-	Fancybox.defaults.dragToClose = false
-	Fancybox.defaults.placeFocusBack = false
-	Fancybox.defaults.l10n = {
-		CLOSE: 'Закрыть',
-		NEXT: 'Следующий',
-		PREV: 'Предыдущий',
-		MODAL: 'Вы можете закрыть это модальное окно нажав клавишу ESC'
-	}
+	const fancyOptions = {
+		dragToClose: false,
+		placeFocusBack: false,
+		l10n: {
+			CLOSE: 'Закрыть',
+			NEXT: 'Следующий',
+			PREV: 'Предыдущий',
+			MODAL: 'Вы можете закрыть это модальное окно нажав клавишу ESC'
+		},
+		on: {
+			ready: (fancybox) => {
+				const container = fancybox.getContainer()
 
-	Fancybox.defaults.tpl = {
-		closeButton: '<button data-fancybox-close class="f-button is-close-btn" title="{{CLOSE}}"><svg><use xlink:href="images/sprite.svg#ic_close"></use></svg></button>',
+				const btn = container.querySelector('.is-close-button')
 
-		main: `<div class="fancybox__container" role="dialog" aria-modal="true" aria-label="{{MODAL}}" tabindex="-1">
-			<div class="fancybox__backdrop"></div>
-			<div class="fancybox__carousel"></div>
-			<div class="fancybox__footer"></div>
-		</div>`,
+				if (btn) {
+					btn.classList.add('is-close-btn')
+					btn.innerHTML = '<svg><use xlink:href="images/sprite.svg#ic_close_big"></use></svg>'
+				}
+			},
+		}
 	}
 
 
@@ -253,15 +255,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		Fancybox.close()
 
-		Fancybox.show([{
-			src: document.getElementById(e.target.getAttribute('data-modal')),
-			type: 'inline'
-		}])
+		Fancybox.show(
+			[{
+				src: `#${e.target.getAttribute('data-modal')}`,
+				type: 'inline'
+			}],
+			fancyOptions
+		)
 	})
 
 
 	// Zoom images
 	Fancybox.bind('.fancy_img', {
+		...fancyOptions,
 		Image: {
 			zoom: false
 		},
@@ -706,10 +712,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// Brand page
 	$('.brand_page .spoler_btn').click(function(e) {
-		const parent = $(this).closest('.brand_page')
+		const $btn = $(this),
+			parent = $btn.closest('.brand_page')
 
-		$(this).toggleClass('active')
+		$btn.toggleClass('active')
 		parent.find('.text_block').toggleClass('show')
+
+		requestAnimationFrame(() => {
+			const btnOffsetTop = $btn.offset().top,
+				btnHeight = $btn.outerHeight(),
+				winHeight = $(window).height(),
+				offsetBottom = 20
+
+			const scrollTo = btnOffsetTop - winHeight + btnHeight + offsetBottom
+
+			$('html, body').animate({
+				scrollTop: scrollTo
+			}, 0)
+		})
 	})
 
 
