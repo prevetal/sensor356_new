@@ -739,7 +739,10 @@ document.addEventListener('DOMContentLoaded', function() {
 		const item = $(this).closest('.item')
 
 		$(this).toggleClass('active')
-		item.find('.sub').slideToggle(300)
+
+		item.toggleClass('open')
+			.find('.sub')
+			.slideToggle(300)
 	})
 })
 

@@ -8471,8 +8471,8 @@ aside
 .brand_page .categories .grid_row
 {
     display: flex;
-    align-content: stretch;
-    align-items: stretch;
+    align-content: flex-start;
+    align-items: flex-start;
     flex-wrap: wrap;
     justify-content: flex-start;
 
@@ -8490,6 +8490,12 @@ aside
 
     border: 1px solid #dedede;
     border-radius: 8px;
+}
+
+
+.brand_page .categories .item.open
+{
+    align-self: stretch;
 }
 
 
