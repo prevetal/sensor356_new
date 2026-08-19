@@ -8434,6 +8434,12 @@ aside
 }
 
 
+.brand_page .spoler_btn:hover
+{
+    color: var(--primary_color);
+}
+
+
 .brand_page .spoler_btn.active span + span
 {
     display: block;
@@ -8465,8 +8471,8 @@ aside
 .brand_page .categories .grid_row
 {
     display: flex;
-    align-content: flex-start;
-    align-items: flex-start;
+    align-content: stretch;
+    align-items: stretch;
     flex-wrap: wrap;
     justify-content: flex-start;
 
@@ -8480,8 +8486,16 @@ aside
 {
     padding: 16px var(--inner_gap);
 
+    transition: border-color .2s linear;
+
     border: 1px solid #dedede;
     border-radius: 8px;
+}
+
+
+.brand_page .categories .item:hover
+{
+    border-color: var(--primary_color);
 }
 
 
