@@ -8486,8 +8486,6 @@ aside
 {
     padding: 16px var(--inner_gap);
 
-    transition: border-color .2s linear;
-
     border: 1px solid #dedede;
     border-radius: 8px;
 }
@@ -8496,12 +8494,6 @@ aside
 .brand_page .categories .item.open
 {
     align-self: stretch;
-}
-
-
-.brand_page .categories .item:hover
-{
-    border-color: var(--primary_color);
 }
 
 
@@ -8537,8 +8529,14 @@ aside
     height: 7px;
     margin-block: 6px;
 
-    transition: transform .2s linear;
+    transition: .2s linear;
     transform: rotate(180deg);
+}
+
+
+.brand_page .categories .main:hover .arr
+{
+    color: var(--primary_color);
 }
 
 
