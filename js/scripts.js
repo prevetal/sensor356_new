@@ -718,18 +718,20 @@ document.addEventListener('DOMContentLoaded', function() {
 		$btn.toggleClass('active')
 		parent.find('.text_block').toggleClass('show')
 
-		requestAnimationFrame(() => {
-			const btnOffsetTop = $btn.offset().top,
-				btnHeight = $btn.outerHeight(),
-				winHeight = $(window).height(),
-				offsetBottom = 20
+		if (!$btn.hasClass('active')) {
+			requestAnimationFrame(() => {
+				const btnOffsetTop = $btn.offset().top,
+					btnHeight = $btn.outerHeight(),
+					winHeight = $(window).height(),
+					offsetBottom = 20
 
-			const scrollTo = btnOffsetTop - winHeight + btnHeight + offsetBottom
+				const scrollTo = btnOffsetTop - winHeight + btnHeight + offsetBottom
 
-			$('html, body').animate({
-				scrollTop: scrollTo
-			}, 0)
-		})
+				$('html, body').animate({
+					scrollTop: scrollTo
+				}, 0)
+			})
+		}
 	})
 
 
