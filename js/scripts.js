@@ -735,6 +735,11 @@ document.addEventListener('DOMContentLoaded', function() {
 	})
 
 
+
+	// Brand categories
+	setCategoriesState(true)
+
+
 	$('.brand_page .categories .main a').click(function(e) {
 		e.preventDefault()
 
@@ -747,6 +752,34 @@ document.addEventListener('DOMContentLoaded', function() {
 			.slideToggle(300)
 	})
 })
+
+
+
+// Brand categories
+let wasDesktop = $(window).width() >= 1024
+let resizeTimer
+
+
+function setCategoriesState(instant) {
+	$('.brand_page .categories .main a').each(function() {
+		const link = $(this),
+			item = link.closest('.item'),
+			sub = item.find('.sub'),
+			isDesktop = $(window).width() >= 1024
+
+		if (isDesktop) {
+			link.addClass('active')
+			item.addClass('open')
+
+			instant ? sub.show() : sub.slideDown(300)
+		} else {
+			link.removeClass('active')
+			item.removeClass('open')
+
+			instant ? sub.hide() : sub.slideUp(300)
+		}
+	})
+}
 
 
 
@@ -797,6 +830,19 @@ window.addEventListener('resize', function () {
 					: $('header').removeClass('fixed')
 			}, 100)
 		}
+
+
+		// Brand categories
+		clearTimeout(resizeTimer)
+		resizeTimer = setTimeout(function() {
+			const isDesktop = $(window).width() >= 1024
+
+			if (isDesktop !== wasDesktop) {
+				wasDesktop = isDesktop
+
+				setCategoriesState(false)
+			}
+		}, 150)
 
 
 		// Mob. version
