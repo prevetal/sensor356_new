@@ -735,7 +735,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	})
 
 
-
 	// Brand categories
 	setCategoriesState(true)
 
@@ -750,6 +749,37 @@ document.addEventListener('DOMContentLoaded', function() {
 		item.toggleClass('open')
 			.find('.sub')
 			.slideToggle(300)
+	})
+
+
+	// Search tips
+	$('header .search .input').keydown(function(e) {
+		const _self = $(this),
+			limit = 2
+
+		setTimeout(() => {
+			_self.val().length > limit
+				? $('header .search .tips').addClass('show')
+				: $('header .search .tips').removeClass('show')
+		})
+	})
+
+
+	$(document).click(e => {
+		if ($(e.target).closest('.search').length === 0) {
+			$('header .search .tips').removeClass('show')
+		}
+	})
+
+
+	$('header .search .tips .in_category .spoler_btn').click(function(e) {
+		e.preventDefault()
+
+		const inCategory = $(this).closest('.in_category')
+
+		$(this).hide()
+
+		inCategory.find('.items').addClass('show_all')
 	})
 })
 

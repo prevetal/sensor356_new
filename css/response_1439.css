@@ -136,6 +136,24 @@
     }
 
 
+    header .search .tips
+    {
+        padding: 24px;
+    }
+
+
+    header .search .tips .row
+    {
+        column-gap: 60px;
+    }
+
+
+    header .search .tips .popular
+    {
+        width: calc(100% - 295px);
+    }
+
+
 
     header.fixed .search
     {

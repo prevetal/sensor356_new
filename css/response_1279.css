@@ -170,6 +170,48 @@
     }
 
 
+    header .search .tips
+    {
+        padding: 20px;
+    }
+
+
+    header .search .tips .row
+    {
+        column-gap: 40px;
+    }
+
+
+    header .search .tips .in_category
+    {
+        width: 200px;
+    }
+
+
+    header .search .tips .popular
+    {
+        width: calc(100% - 240px);
+    }
+
+
+    header .search .tips .popular .product
+    {
+        gap: var(--inner_gap_xs);
+    }
+
+
+    header .search .tips .popular .product .thumb + *
+    {
+        width: calc(100% - 70px - var(--inner_gap_xs));
+    }
+
+
+    header .search .tips .popular .product .price
+    {
+        font-size: 16px;
+    }
+
+
     header .catalog_menu .btn,
     header .search .input
     {
