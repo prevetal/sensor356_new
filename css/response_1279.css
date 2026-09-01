@@ -407,9 +407,8 @@
     .category_info .head
     {
         position: sticky;
-        top: var(--sticky-top);
-
         z-index: 5;
+        top: var(--sticky-top);
 
         --sticky-top: 84px;
     }
@@ -418,6 +417,7 @@
     .category_info .head:before
     {
         position: absolute;
+        z-index: -1;
         top: -8px;
         left: 50%;
 
@@ -427,7 +427,6 @@
         height: calc(100% + 16px);
 
         content: '';
-        z-index: -1;
         transform: translateX(-50%);
 
         background: var(--light_color);
@@ -636,6 +635,7 @@
     .filter
     {
         position: fixed;
+        z-index: 101;
         top: 0;
         left: 100%;
 
@@ -646,7 +646,6 @@
         min-height:         fill-available;
         padding-block: 58px 0;
 
-        z-index: 101;
         transition: transform .3s linear;
 
         background: #f6f6f6;
@@ -684,6 +683,7 @@
     .filter .form .submit
     {
         position: absolute;
+        z-index: 10;
         bottom: 0;
         left: 0;
 
@@ -696,8 +696,6 @@
 
         width: 100%;
         padding: 20px;
-
-        z-index: 10;
 
         background: #f6f6f6;
         box-shadow: 0 0 5px 0 rgba(0, 0, 0, .15);
