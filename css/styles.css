@@ -1687,16 +1687,41 @@ header .search .tips.show
 }
 
 
-header .search .tips .query
+header .search .tips .quike_links
 {
-    width: fit-content;
+    display: flex;
+    align-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: var(--inner_gap_s);
+}
+
+
+header .search .tips .quike_links a
+{
+    display: inline-block;
+
     padding: 8px 16px 6px 16px;
 
     line-height: 150%;
 
+    transition: .2s linear;
+    vertical-align: top;
+    text-decoration: none;
+
+    color: currentColor;
     border-radius: var(--border_radius);
     background: var(--light_color);
     box-shadow: 0 3px 6.6px 0 rgba(97, 97, 97, .20);
+}
+
+
+header .search .tips .quike_links a:hover
+{
+    color: var(--light_color);
+    background: var(--primary_color);
+    box-shadow: none;
 }
 
 
@@ -1707,7 +1732,6 @@ header .search .tips .row
     align-items: flex-start;
     flex-wrap: wrap;
     justify-content: flex-start;
-
     column-gap: 100px;
     row-gap: var(--inner_gap);
 }
