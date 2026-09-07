@@ -1663,6 +1663,7 @@ header .search .tips
     gap: 20px;
 
     width: 100%;
+    margin-top: 1px;
     padding: 32px;
 
     transition: opacity .2s linear, display .2s allow-discrete;
