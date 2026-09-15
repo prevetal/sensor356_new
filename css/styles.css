@@ -1579,13 +1579,19 @@ header .search :-ms-input-placeholder
 }
 
 
+header .search form
+{
+    position: relative;
+}
+
+
 header .search .input
 {
     display: block;
 
     width: 100%;
     height: 70px;
-    padding-inline: 29px 79px;
+    padding-inline: 29px 159px;
 
     font-family: var(--font_family);
     font-size: 26px;
@@ -1613,6 +1619,48 @@ header .search .input:-webkit-autofill
 header .search .input:focus
 {
     border-color: var(--primary_color);
+}
+
+
+header .search .reset_btn
+{
+    position: absolute;
+    top: 0;
+    right: 60px;
+
+    display: none;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    width: 80px;
+    height: 100%;
+
+    transition: color .2s linear;
+
+    color: #acacac;
+}
+
+
+header .search .reset_btn .icon
+{
+    display: block;
+
+    width: 20px;
+    height: 20px;
+}
+
+
+header .search .reset_btn:hover
+{
+    color: var(--primary_color);
+}
+
+
+header .search .reset_btn.show
+{
+    display: flex;
 }
 
 
@@ -2082,7 +2130,8 @@ header.fixed .icon_links
 }
 
 
-.mob_header .icon_links a
+.mob_header .icon_links a,
+.mob_header .icon_links .btn
 {
     position: relative;
 
@@ -2099,7 +2148,8 @@ header.fixed .icon_links
 }
 
 
-.mob_header .icon_links a:after
+.mob_header .icon_links a:after,
+.mob_header .icon_links .btn:after
 {
     position: absolute;
     top: 50%;
@@ -2142,7 +2192,9 @@ header.fixed .icon_links
 
 
 .mob_header .icon_links a:hover,
-.mob_header .icon_links a.active
+.mob_header .icon_links a.active,
+.mob_header .icon_links .btn:hover,
+.mob_header .icon_links .btn.active
 {
     color: var(--primary_color);
 }

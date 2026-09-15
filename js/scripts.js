@@ -393,7 +393,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 	// Mob. menu
-	$('.mob_header .mob_menu_btn, .overlay, header .close_btn').click((e) => {
+	$('.mob_header .mob_menu_btn, .mob_header .search_btn .btn, .overlay, header .close_btn').click((e) => {
 		e.preventDefault()
 
 		$('.mob_header .mob_menu_btn').toggleClass('active')
@@ -759,9 +759,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		setTimeout(() => {
 			_self.val().length > limit
-				? $('header .search .tips').addClass('show')
-				: $('header .search .tips').removeClass('show')
+				? $('header .search .tips, header .search .reset_btn').addClass('show')
+				: $('header .search .tips, header .search .reset_btn').removeClass('show')
 		})
+	})
+
+
+	$('header .search form').on('reset', function() {
+		$('header .search .tips, header .search .reset_btn').removeClass('show')
 	})
 
 
